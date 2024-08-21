@@ -7,8 +7,13 @@ from io import BytesIO
 
 # Function to download the model
 def download_model(url):
+    # Load model from a URL
+    url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
     response = requests.get(url)
-    response.raise_for_status()  # Raise an error for bad status
+    model_bytes = BytesIO(response.content)
+    return model_bytes
+# Load the model
+loaded_model = pickle.load(model_bytes)
     return BytesIO(response.content)  # Convert to a BytesIO object
 def get_value(val, my_dict):
     return my_dict.get(val)

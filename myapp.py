@@ -25,31 +25,28 @@ if app_mode=='Home':
    
    
 elif app_mode =='Prediction':
-    
-    
     st.image('slider-short-3.jpg')
-
     st.subheader('Sir/Mme , You need to fill all neccesary informations in order to verify if there is an early warning of Diabetic condition for you based on your inputs !')
     st.sidebar.header("Informations about the Respondent :")
     HighBP = {"No":0,"Yes":1}
-	HighChol = {"No":0,"Yes":1}
-	BMI = {"Normal":0,"Obese":1, "Overweight":2}
-	Stroke = {"No":0,"Yes":1}
-	HeartDiseaseorAttack = {"No":0,"Yes":1}
-	PhysActivity = {"No":0,"Yes":1}
-	Sex = {"Male":1,"Female":0}
+    HighChol = {"No":0,"Yes":1}
+    BMI = {"Normal":0,"Obese":1, "Overweight":2}
+    Stroke = {"No":0,"Yes":1}
+    HeartDiseaseorAttack = {"No":0,"Yes":1}
+    PhysActivity = {"No":0,"Yes":1}
+    Sex = {"Male":1,"Female":0}
     feature_dict = {"No":1,"Yes":2}
-	Fruits = {"No":0,"Yes":1}
-	Veggies = {"No":0,"Yes":1}
-	HvyAlcoholConsump = {"No":0,"Yes":1}
-	AnyHealthcare = {"No":0,"Yes":1}
-	GenHlth = {"excellent":1, "very good":2, "good": 3,"fair": 4, "poor":5}
-	   
-	MentHlth = {1:30}
-	PhysHlth = {1:30}
-	DiffWalk = {"No":0,"Yes":1}
-	Age= {'Level 1","Level 2"}
-	Education={'Graduate':1,'Not Graduate':2}
+    Fruits = {"No":0,"Yes":1}
+    Veggies = {"No":0,"Yes":1}
+    HvyAlcoholConsump = {"No":0,"Yes":1}
+    AnyHealthcare = {"No":0,"Yes":1}
+    GenHlth = {"excellent":1, "very good":2, "good": 3,"fair": 4, "poor":5}
+       
+    MentHlth = {1:30}
+    PhysHlth = {1:30}
+    DiffWalk = {"No":0,"Yes":1}
+    Age= {'Level 1","Level 2"}
+    Education={'Graduate':1,'Not Graduate':2}
     
 	#prop={'Rural':1,'Urban':2,'Semiurban':3}
     #Gender=st.sidebar.radio('Gender',tuple(gender_dict.keys()))

@@ -71,7 +71,7 @@ elif app_mode == 'Prediction':
 
     if st.button("Predict"):
         # Load the model
-        loaded_model = pickle.load(open('Random_Forest.sav', 'rb'))
+        loaded_model = pickle.load(open('XGBoost_2_model.pkl', 'rb'))
         prediction = loaded_model.predict(single_sample)
 
         # Display result

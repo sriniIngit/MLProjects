@@ -19,11 +19,11 @@ def get_value(val, my_dict):
 app_mode = st.sidebar.selectbox('Select Page', ['Home', 'Prediction'])
 if app_mode == 'Home':
     st.title('Diabetic Early Detection System:')
-    st.image('Cover_Page.jpg')  # Ensure the correct path for your image file
+    st.image('https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/Cover_Page.jpg')  # Ensure the correct path for your image file
     st.write('App realised by: Team 16 - Konduri Srinivas Rao & Subba Rao')
 
 elif app_mode == 'Prediction':
-    st.image('slider-short-3.jpg')  # Ensure the correct path for your image file
+    st.image('https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/slider-short-3.jpg')  # Ensure the correct path for your image file
     st.subheader('Sir/Mme, You need to fill all necessary information to verify if there is an early warning of a diabetic condition for you based on your inputs!')
     st.sidebar.header("Information about the Respondent:")
     

@@ -11,7 +11,7 @@ def download_model(url):
     url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
     response = requests.get(url)
     model_bytes = BytesIO(response.content)
-    return model_bytes
+return model_bytes
 # Load the model
 loaded_model = pickle.load(model_bytes)
     return BytesIO(response.content)  # Convert to a BytesIO object

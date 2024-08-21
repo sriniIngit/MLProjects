@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1724235533102
+current_stage: None
+description: ''
+last_updated_timestamp: 1724235533102
+name: Diabetic_Prediction_XGBoost
+run_id: c5846f6b1e4247f3875e799028b9d186
+run_link: ''
+source: mlflow-artifacts:/748956925725571268/c5846f6b1e4247f3875e799028b9d186/artifacts/XGBoost_2
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/748956925725571268/c5846f6b1e4247f3875e799028b9d186/artifacts/XGBoost_2
+user_id: null
+version: 1

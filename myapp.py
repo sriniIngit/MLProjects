@@ -11,9 +11,11 @@ def download_model(url):
     url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
     response = requests.get(url)
     model_bytes = BytesIO(response.content)
-return model_bytes
-# Load the model
-loaded_model = pickle.load(model_bytes)
+    # Load the model
+    loaded_model = pickle.load(model_bytes)
+    return loaded_model
+    
+
     return BytesIO(response.content)  # Convert to a BytesIO object
 def get_value(val, my_dict):
     return my_dict.get(val)
@@ -74,9 +76,7 @@ elif app_mode == 'Prediction':
 
     if st.button("Predict"):
         # Download and load the model
-        model_bytes = download_model(model_url)
-        loaded_model = pickle.load(model_bytes)
-
+        loaded_model = download_model(model_url)
         # Make prediction
         prediction = loaded_model.predict(single_sample)
 

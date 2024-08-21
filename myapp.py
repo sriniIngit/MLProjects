@@ -4,12 +4,15 @@ import numpy as np
 import pickle
 import requests
 from io import BytesIO
+from some_module import get_value
 
 # Function to download the model
 def download_model(url):
     response = requests.get(url)
     response.raise_for_status()  # Raise an error for bad status
     return BytesIO(response.content)  # Convert to a BytesIO object
+def get_value(val, my_dict):
+    return my_dict.get(val)
 
 # URL of the model
 model_url = 'https://github.com/sriniIngit/MLProjects/raw/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'

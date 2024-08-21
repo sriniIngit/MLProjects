@@ -19,7 +19,7 @@ def get_value(val,my_dict):
 app_mode = st.sidebar.selectbox('Select Page',['Home','Prediction'])
 if app_mode=='Home':
     st.title('Diabetic Early Detection System :')
-    st.image('Cover_Page.jpg') 
+    st.image('/sriniIngit/MLProjects/blob/main/Diabetic_Prediction_Deployment/Cover_Page.jpg') 
     st.write('App realised by : Team 16 - KOnduri Srinivas Rao & Subba Rao') 
    
    

@@ -2,19 +2,17 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import base64
+import requests
+from io import BytesIO
 
-@st.cache_data
-def get_fvalue(val):
-    feature_dict = {"No":1,"Yes":2}
-    for key,value in feature_dict.items():
-        if val == key:
-            return value
+# Function to download the model
+def download_model(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an error for bad status
+    return BytesIO(response.content)  # Convert to a BytesIO object
 
-def get_value(val, my_dict):
-    for key, value in my_dict.items():
-        if val == key:
-            return value
+# URL of the model
+model_url = 'https://github.com/sriniIngit/MLProjects/raw/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
 
 app_mode = st.sidebar.selectbox('Select Page', ['Home', 'Prediction'])
 if app_mode == 'Home':
@@ -26,8 +24,7 @@ elif app_mode == 'Prediction':
     st.image('https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/slider-short-3.jpg')  # Ensure the correct path for your image file
     st.subheader('Sir/Mme, You need to fill all necessary information to verify if there is an early warning of a diabetic condition for you based on your inputs!')
     st.sidebar.header("Information about the Respondent:")
-    
-    # Example of the dropdowns and radio buttons in the sidebar for input
+
     HighBP = st.sidebar.selectbox('High Blood Pressure', ["No", "Yes"])
     HighChol = st.sidebar.selectbox('High Cholesterol', ["No", "Yes"])
     BMI = st.sidebar.selectbox('BMI Category', ["Normal", "Obese", "Overweight"])
@@ -46,7 +43,6 @@ elif app_mode == 'Prediction':
     Age = st.sidebar.selectbox('Age Group', ["Level 1", "Level 2"])
     Education = st.sidebar.selectbox('Education Level', ['Graduate', 'Not Graduate'])
 
-    # Prepare input data for model
     feature_list = [
         get_value(HighBP, {"No": 0, "Yes": 1}),
         get_value(HighChol, {"No": 0, "Yes": 1}),
@@ -70,8 +66,11 @@ elif app_mode == 'Prediction':
     single_sample = np.array(feature_list).reshape(1, -1)
 
     if st.button("Predict"):
-        # Load the model
-        loaded_model = pickle.load(open('https://github.com/sriniIngit/MLProjects/blob/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl', 'rb'))
+        # Download and load the model
+        model_bytes = download_model(model_url)
+        loaded_model = pickle.load(model_bytes)
+
+        # Make prediction
         prediction = loaded_model.predict(single_sample)
 
         # Display result

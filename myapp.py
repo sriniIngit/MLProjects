@@ -4,7 +4,6 @@ import numpy as np
 import pickle
 import requests
 from io import BytesIO
-from some_module import get_value
 
 # Function to download the model
 def download_model(url):

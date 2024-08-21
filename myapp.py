@@ -45,7 +45,7 @@ elif app_mode =='Prediction':
     MentHlth = {1:30}
     PhysHlth = {1:30}
     DiffWalk = {"No":0,"Yes":1}
-    Age= {'Level 1","Level 2"}
+    Age= {"Level 1","Level 2"}
     Education={'Graduate':1,'Not Graduate':2}
     
 	#prop={'Rural':1,'Urban':2,'Semiurban':3}

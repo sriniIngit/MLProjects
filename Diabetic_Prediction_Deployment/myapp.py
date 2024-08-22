@@ -35,12 +35,16 @@ elif app_mode == 'Prediction':
 
     HighBP = st.sidebar.selectbox('High Blood Pressure', ["No", "Yes"])
     HighChol = st.sidebar.selectbox('High Cholesterol', ["No", "Yes"])
-    BMI = st.sidebar.selectbox('BMI Category', ["Normal", "Obese", "Overweight"])
-    Stroke = st.sidebar.selectbox('Stroke', ["No", "Yes"])
-    HeartDiseaseorAttack = st.sidebar.selectbox('Heart Disease or Attack', ["No", "Yes"])
+	CholCheck = st.sidebar.selectbox('Cholesterol check in last 5 years', ["No", "Yes"])
+	BMI = st.sidebar.selectbox('BMI Category', ["Normal", "Obese", "Overweight"])
+	Smoker = st.sidebar.selectbox('Had the person smoked at least 100 cigarettes in entire life? ', ["No", "Yes"])
+	Stroke = st.sidebar.selectbox('Stroke', ["No", "Yes"])
+	HeartDiseaseorAttack = st.sidebar.selectbox('Heart Disease or Attack', ["No", "Yes"])
+	HealthRiskScore = st.sidebar.selectbox('HealthRiskScore', HighBP+HighChol+CholCheck+Stroke+HeartDiseaseorAttack)
+	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition_With_BP_Cholesterol_Difficult in Walk',HighBP+HighChol+DiffWalk)
     PhysActivity = st.sidebar.selectbox('Physical Activity', ["No", "Yes"])
-    Sex = st.sidebar.selectbox('Sex', ["Male", "Female"])
-    Fruits = st.sidebar.selectbox('Fruits Consumption', ["No", "Yes"])
+	Sex = st.sidebar.selectbox('Sex', ["Male", "Female"])
+    #Fruits = st.sidebar.selectbox('Fruits Consumption', ["No", "Yes"])
     Veggies = st.sidebar.selectbox('Vegetable Consumption', ["No", "Yes"])
     HvyAlcoholConsump = st.sidebar.selectbox('Heavy Alcohol Consumption', ["No", "Yes"])
     AnyHealthcare = st.sidebar.selectbox('Any Healthcare Access', ["No", "Yes"])
@@ -50,7 +54,7 @@ elif app_mode == 'Prediction':
     DiffWalk = st.sidebar.selectbox('Difficulty Walking', ["No", "Yes"])
     Age = st.sidebar.selectbox('Age Group', ["Level 1", "Level 2"])
     Education = st.sidebar.selectbox('Education Level', ['Graduate', 'Not Graduate'])
-
+	
     feature_list = [
         get_value(HighBP, {"No": 0, "Yes": 1}),
         get_value(HighChol, {"No": 0, "Yes": 1}),
@@ -59,16 +63,15 @@ elif app_mode == 'Prediction':
         get_value(HeartDiseaseorAttack, {"No": 0, "Yes": 1}),
         get_value(PhysActivity, {"No": 0, "Yes": 1}),
         get_value(Sex, {"Male": 1, "Female": 0}),
-        get_value(Fruits, {"No": 0, "Yes": 1}),
         get_value(Veggies, {"No": 0, "Yes": 1}),
         get_value(HvyAlcoholConsump, {"No": 0, "Yes": 1}),
         get_value(AnyHealthcare, {"No": 0, "Yes": 1}),
         get_value(GenHlth, {"excellent": 1, "very good": 2, "good": 3, "fair": 4, "poor": 5}),
         MentHlth,
         PhysHlth,
-        get_value(DiffWalk, {"No": 0, "Yes": 1}),
-        get_value(Age, {"Level 1": 1, "Level 2": 2}),
-        get_value(Education, {'Graduate': 1, 'Not Graduate': 2}),
+        get_value(ChronicConditionCount, {"No": 0, "Yes": 1}),
+        get_value(Age, {"Level 1": 1, "Level 2": 2})
+        
     ]
 
     single_sample = np.array(feature_list).reshape(1, -1)

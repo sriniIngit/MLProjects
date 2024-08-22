@@ -77,9 +77,13 @@ elif app_mode == 'Prediction':
 		loaded_model = pickle.load(model_bytes)
 		# Assuming 'single_sample' is defined elsewhere in your code
 		# Make prediction
-		prediction = loaded_model.predict(single_sample)
-	# Display result
-	if prediction[0] == 0:
-		st.error('According to our Analysis, you are not at Risk')
-	elif prediction[0] == 1:
-		st.success('We predict you may have a diabetic condition in the future, please consult a Doctor!')
+		try:
+			# Make prediction
+			prediction = loaded_model.predict(single_sample)
+			# Display result
+			if prediction[0] == 0:
+				st.error('According to our Analysis, you are not at Risk')
+			elif prediction[0] == 1:
+				st.success('We predict you may have a diabetic condition in the future, please consult a Doctor!')
+		except Exception as e:
+			st.error(f"An error occurred: {e}")

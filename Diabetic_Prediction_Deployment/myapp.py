@@ -9,8 +9,9 @@ from io import BytesIO
 def download_model(url):
     # Load model from a URL
     #url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+    
     #response = requests.get(url)
-    url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+    url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
     response = requests.get(url)
     # Check for successful response
     if response.status_code != 200:

@@ -4,6 +4,14 @@ import numpy as np
 import pickle
 import requests
 from io import BytesIO
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Example usage
+logging.info('This is an info message in streamlit')
+
 
 # Function to download the model 
 def download_model(url):
@@ -71,10 +79,10 @@ elif app_mode == 'Prediction':
 	]
 	single_sample = np.array(feature_list).reshape(1, -1)
 	# Print shape
-	print("Shape:", single_sample.shape)
+	logging.info("Shape:", single_sample.shape)
 	# Print contents in a formatted manner
-	print("Contents:\n", single_sample)
-	print(single_sample)
+	logging.info("Contents:\n", single_sample)
+	logging.info(single_sample)
 	if st.button("Predict"):
 		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
 		model_bytes = download_model(url)
@@ -87,7 +95,7 @@ elif app_mode == 'Prediction':
 			prediction = loaded_model.predict(single_sample)
 			# Display result
 			length = len(prediction)
-			print(length)
+			logging.info(length)
 			if prediction[0] == 0:
 				st.error('According to our Analysis, you are not at Risk')
 			elif prediction[0] == 1:

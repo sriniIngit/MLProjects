@@ -79,9 +79,9 @@ elif app_mode == 'Prediction':
 	]
 	single_sample = np.array(feature_list).reshape(1, -1)
 	# Print shape
-	logging.info("Shape:", single_sample.shape)
-	# Print contents in a formatted manner
-	logging.info("Contents:\n", single_sample)
+	# Correct usage
+	logging.info("Shape: %s", single_sample.shape)
+	logging.info("Contents:\n%s", single_sample)
 	logging.info(single_sample)
 	if st.button("Predict"):
 		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'

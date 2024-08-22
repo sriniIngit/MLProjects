@@ -81,6 +81,8 @@ elif app_mode == 'Prediction':
 			# Make prediction
 			prediction = loaded_model.predict(single_sample)
 			# Display result
+			length = len(prediction)
+			print(length)
 			if prediction[0] == 0:
 				st.error('According to our Analysis, you are not at Risk')
 			elif prediction[0] == 1:

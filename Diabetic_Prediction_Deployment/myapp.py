@@ -15,9 +15,9 @@ def download_model(url):
 	raise ValueError("The fetched file is not a valid pickle file.")
 	# Return the BytesIO object containing the file's content
 	return BytesIO(response.content)
-       
 def get_value(val, my_dict):
 	return my_dict.get(val)
+	
 # URL of the model
 model_url = 'https://github.com/sriniIngit/MLProjects/raw/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
 app_mode = st.sidebar.selectbox('Select Page', ['Home', 'Prediction'])

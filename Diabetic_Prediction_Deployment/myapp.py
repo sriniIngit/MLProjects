@@ -52,22 +52,22 @@ elif app_mode == 'Prediction':
 	Age = st.sidebar.selectbox('Age Group', ["Level 1", "Level 2"])
 	Education = st.sidebar.selectbox('Education Level', ['Graduate', 'Not Graduate'])
 	
-    feature_list = [
-	    get_value(HighBP, {"No": 0, "Yes": 1}),
-	    get_value(HighChol, {"No": 0, "Yes": 1}),
-	    get_value(BMI, {"Normal": 0, "Obese": 1, "Overweight": 2}),
-	    get_value(Stroke, {"No": 0, "Yes": 1}),
-	    get_value(HeartDiseaseorAttack, {"No": 0, "Yes": 1}),
-	    get_value(PhysActivity, {"No": 0, "Yes": 1}),
-	    get_value(Sex, {"Male": 1, "Female": 0}),
-            get_value(Veggies, {"No": 0, "Yes": 1}),
-	    get_value(HvyAlcoholConsump, {"No": 0, "Yes": 1}),
-	    get_value(AnyHealthcare, {"No": 0, "Yes": 1}),
-	    get_value(GenHlth, {"excellent": 1, "very good": 2, "good": 3, "fair": 4, "poor": 5}),
-	    MentHlth,
-	    PhysHlth,
-	    get_value(ChronicConditionCount, {"No": 0, "Yes": 1}),
-	    get_value(Age, {"Level 1": 1, "Level 2": 2})
+	feature_list = [
+		get_value(HighBP, {"No": 0, "Yes": 1}),
+		get_value(HighChol, {"No": 0, "Yes": 1}),
+		get_value(BMI, {"Normal": 0, "Obese": 1, "Overweight": 2}),
+		get_value(Stroke, {"No": 0, "Yes": 1}),
+		get_value(HeartDiseaseorAttack, {"No": 0, "Yes": 1}),
+		get_value(PhysActivity, {"No": 0, "Yes": 1}),
+		get_value(Sex, {"Male": 1, "Female": 0}),
+		get_value(Veggies, {"No": 0, "Yes": 1}),
+		get_value(HvyAlcoholConsump, {"No": 0, "Yes": 1}),
+		get_value(AnyHealthcare, {"No": 0, "Yes": 1}),
+		get_value(GenHlth, {"excellent": 1, "very good": 2, "good": 3, "fair": 4, "poor": 5}),
+		MentHlth,
+		PhysHlth,
+		get_value(ChronicConditionCount, {"No": 0, "Yes": 1}),
+		get_value(Age, {"Level 1": 1, "Level 2": 2})
 	]
 
     	single_sample = np.array(feature_list).reshape(1, -1)

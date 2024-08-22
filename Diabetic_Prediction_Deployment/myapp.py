@@ -84,8 +84,8 @@ elif app_mode == 'Prediction':
 	logging.info("Contents:\n%s", single_sample)
 	logging.info(single_sample)
 	if st.button("Predict"):
-		#url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/Gradient_Boosting_model.pkl'
+		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+		#url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/Gradient_Boosting_model.pkl'
 		model_bytes = download_model(url)
 		# Load the model
 		loaded_model = pickle.load(model_bytes)

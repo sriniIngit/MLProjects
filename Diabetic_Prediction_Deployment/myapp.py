@@ -39,7 +39,7 @@ elif app_mode == 'Prediction':
 	HeartDiseaseorAttack = st.sidebar.selectbox('Heart Disease or Attack', ["No", "Yes"])
 	HealthRiskScore = st.sidebar.selectbox('HealthRiskScore', ["Normal", "Moderate", "High"])
 	DiffWalk = st.sidebar.selectbox('Difficulty Walking', ["No", "Yes"])
-	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition With BP Cholesterol_Difficult in Walk',["No", "Yes"])
+	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition With BP Cholesterol_Difficult in Walk',["Normal", "Moderate", "High"])
 	PhysActivity = st.sidebar.selectbox('Physical Activity', ["No", "Yes"])
 	Sex = st.sidebar.selectbox('Sex', ["Male", "Female"])
 	#Fruits = st.sidebar.selectbox('Fruits Consumption', ["No", "Yes"])
@@ -62,12 +62,12 @@ elif app_mode == 'Prediction':
 		get_value(Sex, {"Male": 1, "Female": 0}),
 		get_value(Veggies, {"No": 0, "Yes": 1}),
 		get_value(HvyAlcoholConsump, {"No": 0, "Yes": 1}),
-		get_value(AnyHealthcare, {"No": 0, "Yes": 1}),
+		get_value(HealthRiskScore, {"Normal":0, "Moderate":1, "High":1}),
 		get_value(GenHlth, {"excellent": 1, "very good": 2, "good": 3, "fair": 4, "poor": 5}),
 		MentHlth,
 		PhysHlth,
-		get_value(ChronicConditionCount, "Normal":0, "Moderate":1, "High":1}),
-		get_value(Age, {"Level 1": 1, "Level 2": 2})
+		get_value(ChronicConditionCount, {"Normal":0, "Moderate":1, "High":1}),
+		get_value(Age, {"Level 1": 1, "Level 2": 0})
 	]
 	single_sample = np.array(feature_list).reshape(1, -1)
 	if st.button("Predict"):

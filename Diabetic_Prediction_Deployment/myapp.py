@@ -69,20 +69,17 @@ elif app_mode == 'Prediction':
 		get_value(ChronicConditionCount, {"No": 0, "Yes": 1}),
 		get_value(Age, {"Level 1": 1, "Level 2": 2})
 	]
-
-    	single_sample = np.array(feature_list).reshape(1, -1)
-
+	single_sample = np.array(feature_list).reshape(1, -1)
 	if st.button("Predict"):
-	url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-	model_bytes = download_model(url)
-	# Load the model
-	loaded_model = pickle.load(model_bytes)
-	# Assuming 'single_sample' is defined elsewhere in your code
-	# Make prediction
-	prediction = loaded_model.predict(single_sample)
-	
+		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+		model_bytes = download_model(url)
+		# Load the model
+		loaded_model = pickle.load(model_bytes)
+		# Assuming 'single_sample' is defined elsewhere in your code
+		# Make prediction
+		prediction = loaded_model.predict(single_sample)
 	# Display result
 	if prediction[0] == 0:
-	    st.error('According to our Analysis, you are not at Risk')
+		st.error('According to our Analysis, you are not at Risk')
 	elif prediction[0] == 1:
-	    st.success('We predict you may have a diabetic condition in the future, please consult a Doctor!')
+		st.success('We predict you may have a diabetic condition in the future, please consult a Doctor!')

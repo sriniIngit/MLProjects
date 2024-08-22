@@ -7,24 +7,14 @@ from io import BytesIO
 
 # Function to download the model 
 def download_model(url):
-    # Load model from a URL
-    #url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-    
-    #response = requests.get(url)
-    url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
     response = requests.get(url)
     # Check for successful response
     if response.status_code != 200:
         raise ValueError(f"Failed to fetch the file: Status code {response.status_code}")
     if "html" in response.headers["Content-Type"]:
         raise ValueError("The fetched file is not a valid pickle file.")
-    model_bytes = BytesIO(response.content)
-    # Load the model
-    try:
-        loaded_model = pickle.load(model_bytes)
-    except pickle.UnpicklingError:
-        raise ValueError("The file could not be unpickled. Ensure it's a valid pickle file.")
-    return loaded_model
+    # Return the BytesIO object containing the file's content
+    return BytesIO(response.content)
        
 def get_value(val, my_dict):
     return my_dict.get(val)
@@ -84,17 +74,14 @@ elif app_mode == 'Prediction':
     single_sample = np.array(feature_list).reshape(1, -1)
 
     if st.button("Predict"):
-        url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-        #url =  'https://github.com/sriniIngit/MLProjects/blob/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-        loaded_model = download_model(url)
-        model_bytes = BytesIO(response.content)
+        url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+        model_bytes = download_model(url)
         # Load the model
         loaded_model = pickle.load(model_bytes)
+        # Assuming 'single_sample' is defined elsewhere in your code
         # Make prediction
-        
-        #loaded_model = pickle.load(open('C:/Users/kondu/XGBoost_2_model.pkl', 'rb'))
         prediction = loaded_model.predict(single_sample)
-
+       
         # Display result
         if prediction[0] == 0:
             st.error('According to our Analysis, you are not at Risk')

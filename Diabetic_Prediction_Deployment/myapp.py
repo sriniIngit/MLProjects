@@ -10,11 +10,12 @@ def download_model(url):
 	response = requests.get(url)
 	# Check for successful response
 	if response.status_code != 200:
-	raise ValueError(f"Failed to fetch the file: Status code {response.status_code}")
+		raise ValueError(f"Failed to fetch the file: Status code {response.status_code}")
 	if "html" in response.headers["Content-Type"]:
-	raise ValueError("The fetched file is not a valid pickle file.")
-	# Return the BytesIO object containing the file's content
+		raise ValueError("The fetched file is not a valid pickle file.")
+	#Return the BytesIO object containing the file's content
 	return BytesIO(response.content)
+	
 def get_value(val, my_dict):
 	return my_dict.get(val)
 	

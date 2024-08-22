@@ -90,7 +90,7 @@ elif app_mode == 'Prediction':
         #loaded_model = pickle.load(model_bytes)
         # Make prediction
         
-        loaded_model = pickle.load(open('C:\Users\kondu\XGBoost_2_model.pkl', 'rb'))
+        loaded_model = pickle.load(open('C:/Users/kondu/XGBoost_2_model.pkl', 'rb'))
         prediction = loaded_model.predict(single_sample)
 
         # Display result

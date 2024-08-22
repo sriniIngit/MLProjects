@@ -83,14 +83,14 @@ elif app_mode == 'Prediction':
     single_sample = np.array(feature_list).reshape(1, -1)
 
     if st.button("Predict"):
-        #url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-        #loaded_model = download_model(url)
-        #model_bytes = BytesIO(response.content)
+        url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+        loaded_model = download_model(url)
+        model_bytes = BytesIO(response.content)
         # Load the model
-        #loaded_model = pickle.load(model_bytes)
+        loaded_model = pickle.load(model_bytes)
         # Make prediction
         
-        loaded_model = pickle.load(open('C:/Users/kondu/XGBoost_2_model.pkl', 'rb'))
+        #loaded_model = pickle.load(open('C:/Users/kondu/XGBoost_2_model.pkl', 'rb'))
         prediction = loaded_model.predict(single_sample)
 
         # Display result

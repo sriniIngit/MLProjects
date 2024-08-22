@@ -38,7 +38,8 @@ elif app_mode == 'Prediction':
 	Stroke = st.sidebar.selectbox('Stroke', ["No", "Yes"])
 	HeartDiseaseorAttack = st.sidebar.selectbox('Heart Disease or Attack', ["No", "Yes"])
 	HealthRiskScore = st.sidebar.selectbox('HealthRiskScore', HighBP+HighChol+CholCheck+Stroke+HeartDiseaseorAttack)
-	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition_With_BP_Cholesterol_Difficult in Walk',HighBP+HighChol+DiffWalk)
+	DiffWalk = st.sidebar.selectbox('Difficulty Walking', ["No", "Yes"])
+	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition With BP Cholesterol_Difficult in Walk',["No", "Yes"])
 	PhysActivity = st.sidebar.selectbox('Physical Activity', ["No", "Yes"])
 	Sex = st.sidebar.selectbox('Sex', ["Male", "Female"])
 	#Fruits = st.sidebar.selectbox('Fruits Consumption', ["No", "Yes"])
@@ -48,7 +49,6 @@ elif app_mode == 'Prediction':
 	GenHlth = st.sidebar.selectbox('General Health', ["excellent", "very good", "good", "fair", "poor"])
 	MentHlth = st.sidebar.slider('Mental Health (days)', 1, 30, 1)
 	PhysHlth = st.sidebar.slider('Physical Health (days)', 1, 30, 1)
-	DiffWalk = st.sidebar.selectbox('Difficulty Walking', ["No", "Yes"])
 	Age = st.sidebar.selectbox('Age Group', ["Level 1", "Level 2"])
 	Education = st.sidebar.selectbox('Education Level', ['Graduate', 'Not Graduate'])
 	

@@ -70,6 +70,11 @@ elif app_mode == 'Prediction':
 		get_value(Age, {"Level 1": 1, "Level 2": 0})
 	]
 	single_sample = np.array(feature_list).reshape(1, -1)
+	# Print shape
+	print("Shape:", single_sample.shape)
+	# Print contents in a formatted manner
+	print("Contents:\n", single_sample)
+	print(single_sample)
 	if st.button("Predict"):
 		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
 		model_bytes = download_model(url)

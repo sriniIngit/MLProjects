@@ -84,7 +84,8 @@ elif app_mode == 'Prediction':
 	logging.info("Contents:\n%s", single_sample)
 	logging.info(single_sample)
 	if st.button("Predict"):
-		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+		#url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+		url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/Gradient_Boosting_model.pkl'
 		model_bytes = download_model(url)
 		# Load the model
 		loaded_model = pickle.load(model_bytes)
@@ -97,7 +98,7 @@ elif app_mode == 'Prediction':
 			length = len(prediction)
 			logging.info(length)
 			# Using f-strings for formatting
-			logging.info(f"The Predicted Value is: {prediction[0]}")
+			logging.info(f"The Gradient Boosting Predicted Value is: {prediction[0]}")
 			if prediction[0] == 0:
 				st.error('According to our Analysis, you are not at Risk')
 			elif prediction[0] == 1:

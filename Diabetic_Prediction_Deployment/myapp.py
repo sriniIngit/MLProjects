@@ -5,7 +5,7 @@ import pickle
 import requests
 from io import BytesIO
 
-# Function to download the model
+# Function to download the model 
 def download_model(url):
     # Load model from a URL
     #url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
@@ -84,8 +84,8 @@ elif app_mode == 'Prediction':
     single_sample = np.array(feature_list).reshape(1, -1)
 
     if st.button("Predict"):
-        #url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
-        url =       'https://github.com/sriniIngit/MLProjects/blob/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+        url = 'https://raw.githubusercontent.com/sriniIngit/MLProjects/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
+        #url =  'https://github.com/sriniIngit/MLProjects/blob/main/Diabetic_Prediction_Deployment/XGBoost_2_model.pkl'
         loaded_model = download_model(url)
         model_bytes = BytesIO(response.content)
         # Load the model

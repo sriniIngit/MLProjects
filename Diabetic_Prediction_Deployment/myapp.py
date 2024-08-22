@@ -37,7 +37,7 @@ elif app_mode == 'Prediction':
 	Smoker = st.sidebar.selectbox('Had the person smoked at least 100 cigarettes in entire life? ', ["No", "Yes"])
 	Stroke = st.sidebar.selectbox('Stroke', ["No", "Yes"])
 	HeartDiseaseorAttack = st.sidebar.selectbox('Heart Disease or Attack', ["No", "Yes"])
-	HealthRiskScore = st.sidebar.selectbox('HealthRiskScore', HighBP+HighChol+CholCheck+Stroke+HeartDiseaseorAttack)
+	HealthRiskScore = st.sidebar.selectbox('HealthRiskScore', ["Normal", "Moderate", "High"])
 	DiffWalk = st.sidebar.selectbox('Difficulty Walking', ["No", "Yes"])
 	ChronicConditionCount =  st.sidebar.selectbox('Chronic Condition With BP Cholesterol_Difficult in Walk',["No", "Yes"])
 	PhysActivity = st.sidebar.selectbox('Physical Activity', ["No", "Yes"])
@@ -66,7 +66,7 @@ elif app_mode == 'Prediction':
 		get_value(GenHlth, {"excellent": 1, "very good": 2, "good": 3, "fair": 4, "poor": 5}),
 		MentHlth,
 		PhysHlth,
-		get_value(ChronicConditionCount, {"No": 0, "Yes": 1}),
+		get_value(ChronicConditionCount, "Normal":0, "Moderate":1, "High":1}),
 		get_value(Age, {"Level 1": 1, "Level 2": 2})
 	]
 	single_sample = np.array(feature_list).reshape(1, -1)

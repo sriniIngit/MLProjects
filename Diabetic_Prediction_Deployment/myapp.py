@@ -98,7 +98,7 @@ elif app_mode == 'Prediction':
 			length = len(prediction)
 			logging.info(length)
 			# Using f-strings for formatting
-			logging.info(f"The Gradient Boosting Predicted Value is: {prediction[0]}")
+			logging.info(f"The XGBoost Predicted Value is: {prediction[0]}")
 			if prediction[0] == 0:
 				st.error('According to our Analysis, you are not at Risk')
 			elif prediction[0] == 1:
